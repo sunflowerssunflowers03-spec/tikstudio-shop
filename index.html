@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tikstudio — โปรแกรมสำหรับสตรีมเมอร์ TikTok | King Studio</title>
+<meta name="description" content="Tikstudio โปรแกรมช่วยไลฟ์ TikTok: อีเว้นท์แอคชั่น นับวิน สุ่มวิน จับเวลา เว็บโดเนท และเกมมายคราฟที่คนดูเล่นผ่านของขวัญได้">
+<meta property="og:title" content="Tikstudio — โปรแกรมสำหรับสตรีมเมอร์ TikTok">
+<meta property="og:image" content="img/home.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&family=Itim&display=swap" rel="stylesheet">
+<script>window.SHOP = {"topic":"tks-shop-a93ce9da127ea5f233fd1311","pubJwk":{"kty":"RSA","n":"tlu95eOlaoqyxu7QuuBem_uLQ0a7SR1SVPKs7kN5GHjL7dmXBqP_sJEcN1dMpIp9vcPplFH-0NYRuD-Uoq_xcTR7jnOd9_CHgBgCt2vNvRea2UB2dO4m6GGRbgQuMbGDPkYO2Y3tJ_C7WhLTZhzgDCWT9IxS0iRabFUZe2Sss_DdVKSfAxSN60yO5_GNu3oxCaDTme7Efu-KAcAT9ZlM4sb9avUGbS4WMh83jZI_n6QHlh_mvpis8w1YC0eDp4WTAz7OIMNdFsway2Bao0FbchCNt6i2tU6XspevzcyYSWH_0ZCAjzzvNSMJXwVxhEGMA2WBxLmdTc8G9lcaZFNHVw","e":"AQAB"},"ntfy":"https://ntfy.sh/","price":199,"phone":"0822160967","name":"ณัฐพัชร์ วัฒนาศศินนท์"};</script>
+<script src="qrcode.js"></script>
+<style>
+:root{--bg:#07060c;--card:#13101d;--card2:#1b1628;--line:rgba(255,255,255,.09);--tx:#f4efff;--mu:#a69dbd;--c1:#8b5cf6;--c2:#ec4899;--ok:#22c55e;--tm:#f97316;--bad:#ff4b5c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Kanit,Itim,system-ui,sans-serif;font-weight:400;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+.bgfx{position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% -10%,rgba(139,92,246,.28),transparent 60%),radial-gradient(800px 600px at 110% 10%,rgba(236,72,153,.22),transparent 60%),radial-gradient(700px 500px at 50% 120%,rgba(34,211,238,.12),transparent 60%)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(7,6,12,.7);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:12px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none}
+.brand img{width:38px;height:38px;border-radius:11px;box-shadow:0 0 0 2px var(--c1)}
+.brand small{display:block;font-weight:400;font-size:12px;color:var(--mu);line-height:1}
+.sp{flex:1}
+.nl{color:var(--mu);text-decoration:none;font-size:15px;padding:6px 10px;border-radius:10px}.nl:hover{color:#fff;background:rgba(255,255,255,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:12px 20px;font:inherit;font-weight:600;font-size:16px;color:#fff;cursor:pointer;text-decoration:none;transition:transform .15s,filter .15s,box-shadow .15s;background:var(--card2);border:1px solid var(--line)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.btn.pri{background:linear-gradient(90deg,var(--c1),var(--c2));border:0;box-shadow:0 10px 30px rgba(236,72,153,.35)}
+.btn.ok{background:linear-gradient(90deg,#16a34a,#22c55e);border:0;box-shadow:0 10px 30px rgba(34,197,94,.3)}
+.btn.dc{background:linear-gradient(90deg,#5865f2,#7983f5);border:0;box-shadow:0 10px 30px rgba(88,101,242,.35)}
+.btn.tm{background:linear-gradient(90deg,#f97316,#ef4444);border:0;box-shadow:0 10px 30px rgba(249,115,22,.3)}
+.btn.lg{font-size:20px;padding:16px 30px;border-radius:18px}
+.btn.sm{padding:8px 12px;font-size:14px;border-radius:11px}
+.btn.w{width:100%}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--mu);padding:5px 11px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.live i{width:8px;height:8px;border-radius:50%;background:#64748b}.live.on i{background:#22c55e;box-shadow:0 0 10px #22c55e;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.4}}
+/* hero */
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
+.tag{display:inline-flex;gap:8px;align-items:center;font-size:14px;padding:6px 14px;border-radius:99px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);color:#d9c9ff}
+h1{font-size:clamp(36px,5.4vw,62px);line-height:1.08;margin:18px 0 14px;font-weight:800;letter-spacing:-.5px}
+.grad{background:linear-gradient(90deg,#c084fc,#f472b6,#fb923c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:#cfc6e6;max-width:560px}
+.price{display:flex;align-items:baseline;gap:10px;margin:22px 0 18px}
+.price b{font-size:56px;font-weight:800;line-height:1}.price span{color:var(--mu)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.chk{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;color:var(--mu);font-size:14px}
+.shot{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(139,92,246,.2);transform:perspective(1200px) rotateY(-8deg) rotateX(3deg);transition:transform .5s}
+.shot:hover{transform:none}
+.shot img{display:block;width:100%}
+.float{position:absolute;width:30%;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.6);animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.heroimg{position:relative}
+.heroimg .f1{right:-4%;bottom:-8%}.heroimg .f2{left:-6%;top:-10%;animation-delay:-2.5s;width:24%}
+section{padding:56px 0}
+h2{font-size:clamp(28px,3.6vw,40px);margin:0 0 8px;font-weight:800;text-align:center}
+.sub{color:var(--mu);text-align:center;margin:0 auto 34px;max-width:640px}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;transition:transform .2s,border-color .2s}
+.f:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.45)}
+.f .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;margin-bottom:12px;background:linear-gradient(135deg,rgba(139,92,246,.3),rgba(236,72,153,.25))}
+.f h3{margin:0 0 6px;font-size:18px;font-weight:600}.f p{margin:0;color:var(--mu);font-size:14.5px}
+.gal{display:grid;grid-template-columns:240px 1fr;gap:18px;align-items:start}
+.gtabs{display:flex;flex-direction:column;gap:6px}
+.gt{text-align:left;border:1px solid var(--line);background:var(--card);color:var(--mu);font:inherit;font-size:14.5px;padding:8px 12px;border-radius:12px;cursor:pointer;transition:.15s}
+.gt:hover{color:#fff}.gt.on{color:#fff;background:linear-gradient(90deg,rgba(139,92,246,.35),rgba(236,72,153,.2));border-color:rgba(236,72,153,.4)}
+.gview{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.gview img{display:block;width:100%;aspect-ratio:1360/850;object-fit:cover;cursor:zoom-in}
+.gcap{padding:14px 18px;background:var(--card);color:#d8d0ee;font-size:15px}
+.acts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.acts img{border-radius:16px;display:block;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:transform .2s}.acts img:hover{transform:scale(1.04) rotate(-1deg)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.st{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 18px;position:relative}
+.st::before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:18px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.st h3{margin:6px 0 4px;font-size:17px;font-weight:600}.st p{margin:0;color:var(--mu);font-size:14px}
+.buybox{max-width:720px;margin:0 auto;text-align:center;background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(236,72,153,.16));border:1px solid rgba(236,72,153,.35);border-radius:28px;padding:36px 24px}
+.buybox .price{justify-content:center}
+.pays{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;color:var(--mu);font-size:14px}
+.pays span{padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.06)}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:0 auto 10px;max-width:820px}
+summary{cursor:pointer;font-weight:600;font-size:16px}
+details p{color:var(--mu);margin:8px 0 0}
+footer{padding:34px 0 50px;color:var(--mu);text-align:center;font-size:14px;border-top:1px solid var(--line);margin-top:30px}
+.mine{max-width:820px;margin:0 auto 20px;display:none}
+.mine.on{display:block}
+.mo{display:flex;align-items:center;gap:12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.35);border-radius:16px;padding:12px 16px;margin-bottom:8px;flex-wrap:wrap}
+.mo b.code{font-size:24px;letter-spacing:5px;color:#fde047}
+/* modal */
+.mbg{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:24px 12px}
+.mbg.on{display:flex}
+.mod{width:min(520px,100%);background:#120f1c;border:1px solid var(--line);border-radius:24px;padding:22px;position:relative;animation:pop .3s cubic-bezier(.2,1.3,.4,1);margin:auto 0}
+@keyframes pop{from{transform:scale(.92);opacity:0}}
+.x{position:absolute;right:12px;top:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer}
+.mod h3{margin:0 0 4px;font-size:22px}
+.mod .mu{color:var(--mu);font-size:14px}
+label.l{display:block;font-size:14px;color:var(--mu);margin:14px 0 6px}
+.inp{width:100%;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--tx);font:inherit;font-size:16px;outline:none}
+.inp:focus{border-color:var(--c1);box-shadow:0 0 0 3px rgba(139,92,246,.2)}
+.ptabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 4px}
+.pt{border:2px solid var(--line);background:var(--card);color:var(--tx);border-radius:16px;padding:14px 10px;font:inherit;cursor:pointer;text-align:center;transition:.15s}
+.pt b{display:block;font-size:17px}.pt small{color:var(--mu);font-size:12.5px}
+.pt .e{font-size:26px;display:block}
+.pt.on{border-color:var(--tm);background:rgba(249,115,22,.12)}
+.panel{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.panel ol{margin:0;padding-left:20px;color:#d8d0ee;font-size:14.5px}.panel li{margin:4px 0}
+.qrw{display:flex;flex-direction:column;align-items:center;gap:8px}
+.qr{background:#fff;padding:12px;border-radius:16px;position:relative}
+.qr canvas{display:block;width:230px;height:230px;image-rendering:pixelated}
+.qr .tg{position:absolute;left:50%;top:-12px;transform:translateX(-50%);background:var(--tm);color:#fff;font-size:12px;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.amt{font-size:20px;font-weight:800;color:#4ade80;background:rgba(34,197,94,.14);border-radius:12px;padding:5px 14px}
+.acct{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:14px;padding:10px 12px;margin-top:10px;width:100%}
+.acct .bk{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--tm);font-weight:800;font-size:13px}
+.acct .n{font-size:19px;font-weight:600;letter-spacing:1px}.acct .s{font-size:13px;color:var(--mu)}
+.drop{display:block;margin-top:12px;border:2px dashed rgba(255,255,255,.22);border-radius:16px;padding:18px;text-align:center;cursor:pointer;color:var(--mu);font-size:15px}
+.drop.has{border-style:solid;border-color:#22c55e;color:#bbf7d0}
+.drop img{max-height:160px;border-radius:10px;display:block;margin:0 auto 6px}
+.drop input{display:none}
+.err{color:#fca5a5;background:rgba(255,75,92,.1);border:1px solid rgba(255,75,92,.3);border-radius:12px;padding:10px 12px;margin-top:12px;font-size:14.5px;display:none}
+.err.on{display:block}
+.center{text-align:center}
+.spin{width:54px;height:54px;border-radius:50%;border:5px solid rgba(255,255,255,.12);border-top-color:var(--c2);animation:sp 1s linear infinite;margin:10px auto 14px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.big{font-size:56px;line-height:1;margin:6px 0}
+.code{display:flex;justify-content:center;gap:8px;margin:14px 0}
+.code span{width:48px;height:62px;border-radius:14px;display:grid;place-items:center;font-size:34px;font-weight:800;background:linear-gradient(180deg,#2a2140,#1a1528);border:2px solid rgba(253,224,71,.5);color:#fde047;box-shadow:0 0 18px rgba(253,224,71,.2);animation:pop .4s cubic-bezier(.2,1.6,.4,1) both}
+.code span:nth-child(2){animation-delay:.05s}.code span:nth-child(3){animation-delay:.1s}.code span:nth-child(4){animation-delay:.15s}.code span:nth-child(5){animation-delay:.2s}.code span:nth-child(6){animation-delay:.25s}
+.howto{text-align:left;background:var(--card);border-radius:14px;padding:12px 16px;margin-top:14px;font-size:14.5px;color:#d8d0ee}
+.howto ol{margin:4px 0 0;padding-left:20px}
+.zoom{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.zoom.on{display:flex}.zoom img{max-height:92vh;border-radius:12px}
+.conf{position:fixed;inset:0;pointer-events:none;z-index:70}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:34px}.shot{transform:none}
+  .feat{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;row-gap:26px}.acts{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr}.gtabs{flex-direction:row;overflow-x:auto;padding-bottom:4px}.gt{white-space:nowrap}
+  .nl{display:none}
+}
+@media (max-width:520px){.live span{display:none}.live{padding:8px}.float{display:none}.brand small{display:none}.feat{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.code span{width:40px;height:54px;font-size:28px}.price b{font-size:46px}}
+</style>
+</head>
+<body>
+<div class="bgfx"></div>
+<nav><div class="wrap">
+  <a class="brand" href="#top"><img src="img/logo.png" alt=""><div>Tikstudio<small>by King Studio</small></div></a>
+  <div class="sp"></div>
+  <a class="nl" href="#features">ฟีเจอร์</a><a class="nl" href="#gallery">ตัวอย่าง</a><a class="nl" href="#how">วิธีซื้อ</a><a class="nl" href="#faq">คำถาม</a>
+  <span class="live" id="live"><i></i><span>กำลังเช็กร้าน...</span></span>
+  <button class="btn pri sm buy">🛒 ซื้อเลย</button>
+</div></nav>
+
+<header class="wrap hero" id="top">
+  <div>
+    <span class="tag">🎁 โปรแกรมสำหรับสตรีมเมอร์ TikTok · Windows</span>
+    <h1>ไลฟ์ให้ <span class="grad">ปัง</span> กว่าเดิม<br>ด้วย Tikstudio</h1>
+    <p class="lead">คนดูส่งของขวัญ กดใจ หรือคอมเมนต์ แล้วอะไรๆ ก็เกิดขึ้นบนไลฟ์ได้ทันที: เปลี่ยนวิน เล่นเสียง สุ่มรางวัล จับเวลา รับโดเนท ไปจนถึงเกมมายคราฟที่คนดูช่วยเล่นด้วยของขวัญ</p>
+    <div class="price"><b><span id="priceTxt" style="color:inherit;font-size:inherit">199</span>฿</b><span>จ่ายครั้งเดียว · เข้า Discord รับโปรแกรมได้ทันที</span></div>
+    <div class="cta"><button class="btn pri lg buy">🛒 ซื้อ Tikstudio</button><a class="btn lg" href="#gallery">👀 ดูตัวอย่าง</a></div>
+    <div class="chk"><span>🧧 จ่ายด้วยอั่งเปา TrueMoney</span><span>📷 หรือสแกน QR</span><span>💬 ตรวจเงินแล้วเข้า Discord ได้เลย</span></div>
+  </div>
+  <div class="heroimg">
+    <div class="shot"><img src="img/home.jpg" alt="หน้าโปรแกรม Tikstudio"></div>
+    <img class="float f1" src="img/act-dragon.jpg" alt="">
+    <img class="float f2" src="img/act-rocket.jpg" alt="">
+  </div>
+</header>
+
+<div class="wrap mine" id="mine"><h3 style="margin:0 0 10px">💬 การซื้อของฉัน</h3><div id="mineList"></div></div>
+
+<section id="features"><div class="wrap">
+  <h2>ทำอะไรได้บ้าง</h2>
+  <p class="sub">รวมทุกอย่างที่สตรีมเมอร์ต้องใช้ไว้ในโปรแกรมเดียว ใส่ลิงก์โอเวอร์เลย์ใน TikTok LIVE Studio ได้เลย</p>
+  <div class="feat">
+    <div class="f"><div class="ic">⚡</div><h3>อีเว้นท์แอคชั่น</h3><p>ตั้งได้ว่าของขวัญ ใจ คอมเมนต์ แชร์ หรือฟอลโลว์ ทำให้เกิดอะไรขึ้นบนไลฟ์</p></div>
+    <div class="f"><div class="ic">🏆</div><h3>นับวิน / สุ่มวิน</h3><p>ตัวนับวินสวยๆ บวกลบอัตโนมัติจากของขวัญ พร้อมวงล้อสุ่ม</p></div>
+    <div class="f"><div class="ic">⏱️</div><h3>จับเวลา</h3><p>นับถอยหลังบนจอ ของขวัญบวกหรือลบเวลาได้</p></div>
+    <div class="f"><div class="ic">🔊</div><h3>เสียง & โอเวอร์เลย์พิเศษ</h3><p>เล่นเสียง ขึ้นภาพ ขึ้นข้อความตามที่คนดูส่งมา</p></div>
+    <div class="f"><div class="ic">💸</div><h3>เว็บโดเนทของตัวเอง</h3><p>รับโดเนทผ่านอั่งเปา พร้อมเพย์ หรือธนาคาร มีบอทตรวจสลิปฟรี แจ้งเตือนขึ้นจอทันที</p></div>
+    <div class="f"><div class="ic">⛏️</div><h3>มายคราฟ 10 แมพ</h3><p>ต่อบล็อก ต่อตึก ตัดต้นไม้ ปลูกผัก หาเพชร ฯลฯ คนดูช่วยหรือป่วนผ่านของขวัญ</p></div>
+    <div class="f"><div class="ic">🎮</div><h3>มินิเกม</h3><p>เกมเล่นบนไลฟ์ มีหลอดความคืบหน้าและวินในตัว</p></div>
+    <div class="f"><div class="ic">✂️</div><h3>ตัดต่อรูป</h3><p>ทำรูปปก รูปของขวัญ และป้ายต่างๆ ได้ในโปรแกรม</p></div>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <h2>ตัวอย่างในโปรแกรม</h2>
+  <p class="sub">หน้าตาจริงของ Tikstudio (กดที่รูปเพื่อดูใหญ่)</p>
+  <div class="gal"><div class="gtabs" id="gtabs"></div><div class="gview"><img id="gimg" src="img/home.jpg" alt=""><div class="gcap" id="gcap"></div></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>แมพต่อตึกในมายคราฟ</h2>
+  <p class="sub">คนดูส่งของขวัญ → จรวด มังกร UFO หรือนิวเคลียร์ โผล่มาช่วยต่อหรือทำลายตึกในเกมจริงๆ</p>
+  <div class="acts"><img src="img/act-rocket.jpg" alt="จรวด"><img src="img/act-dragon.jpg" alt="มังกร"><img src="img/act-ufo.jpg" alt="UFO"><img src="img/act-win.jpg" alt="ชนะ"></div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2>ซื้อยังไง</h2>
+  <p class="sub">จ่ายเสร็จ ระบบตรวจเงินแล้วขึ้นปุ่มเข้า Discord ให้บนหน้านี้อัตโนมัติ</p>
+  <div class="steps">
+    <div class="st"><h3>กด “ซื้อเลย”</h3><p>ใส่ชื่อของคุณ</p></div>
+    <div class="st"><h3>จ่าย <span class="pr">199</span> บาท</h3><p>ส่งลิงก์อั่งเปา TrueMoney หรือสแกน QR แล้วแนบสลิป</p></div>
+    <div class="st"><h3>ระบบตรวจเงิน</h3><p>ตรวจอั่งเปา/สลิปให้อัตโนมัติ ใช้เวลาไม่ถึง 1 นาที</p></div>
+    <div class="st"><h3>เข้า Discord</h3><p>กดปุ่ม “เข้า Discord” รับโปรแกรมและวิธีใช้ในดิสคอร์ด</p></div>
+  </div>
+  <div style="height:40px"></div>
+  <div class="buybox">
+    <div style="font-size:18px">Tikstudio เวอร์ชันเต็ม</div>
+    <div class="price"><b><span class="pr" style="color:inherit;font-size:inherit">199</span>฿</b></div>
+    <button class="btn pri lg buy">🛒 ซื้อเลย</button>
+    <div class="pays"><span>🧧 ลิงก์อั่งเปา</span><span>📷 สแกน QR + แนบสลิป</span><span>💬 เข้า Discord</span></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>คำถามที่พบบ่อย</h2>
+  <p class="sub"></p>
+  <details><summary>จ่ายแล้วได้อะไรบ้าง?</summary><p>ทันทีที่ระบบตรวจเงินผ่าน หน้านี้จะขึ้นปุ่ม “เข้า Discord” ของ King Studio — รับโปรแกรม Tikstudio และวิธีใช้ได้ในดิสคอร์ด</p></details>
+  <details><summary>ใช้กับเครื่องอะไรได้?</summary><p>คอมพิวเตอร์ Windows (64 บิต) ใช้คู่กับ TikTok LIVE Studio หรือ OBS ส่วนแมพมายคราฟต้องมี Minecraft Java Edition</p></details>
+  <details><summary>ส่งอั่งเปายังไง?</summary><p>ในแอป TrueMoney เลือก “อั่งเปา” → สร้างซองยอดเท่าราคา และเลือกจำนวนคนรับ “1 คน” → คัดลอกลิงก์มาวางในหน้าซื้อ ระบบจะรับซองให้อัตโนมัติ (ถ้าซองยอดไม่ครบหรือแบ่งหลายคน ระบบจะไม่รับซอง เงินไม่หาย)</p></details>
+  <details><summary>สแกน QR แล้วต้องทำอะไรต่อ?</summary><p>QR มียอดเงินใส่ไว้ให้แล้ว สแกนจ่ายด้วยแอปธนาคารหรือ TrueMoney แล้วแนบรูปสลิปในหน้าซื้อ ระบบจะตรวจสลิปให้อัตโนมัติ</p></details>
+  <details><summary>เผลอปิดหน้าเว็บก่อนได้ลิงก์ ทำยังไง?</summary><p>เปิดเว็บนี้ใหม่ในเครื่องหรือมือถือเครื่องเดิม ปุ่มเข้า Discord จะขึ้นที่หัวข้อ “การซื้อของฉัน” ให้เอง</p></details>
+</div></section>
+
+<footer><div class="wrap">© Tikstudio · King Studio — ชำระเงินเข้า TrueMoney <span id="ftName"></span></div></footer>
+
+<!-- buy -->
+<div class="mbg" id="mbg"><div class="mod" id="mod"></div></div>
+<div class="zoom" id="zoom"><img id="zimg" alt=""></div>
+<canvas class="conf" id="conf"></canvas>
+
+<script>
+(function () {
+  const C = window.SHOP || { preview: true, topic: '', price: 199, phone: '0822160967', name: 'ณัฐพัชร์ วัฒนาศศินนท์' };
+  const NT = C.ntfy || 'https://ntfy.sh/';
+  const PRICE = +C.price || 199;
+  const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const ANG = /^https:\/\/gift\.truemoney\.com\/campaign\/?\?v=[A-Za-z0-9]{8,64}$/;
+  const isAndroid = /android/i.test(navigator.userAgent), isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  $('#priceTxt').textContent = PRICE; $$('.pr').forEach(x => x.textContent = PRICE); $('#ftName').textContent = C.name || '';
+
+  // ---- gallery
+  const G = [['home', '🏠 หน้าแรก', 'เชื่อมต่อไลฟ์ TikTok แล้วดูเหตุการณ์ในไลฟ์แบบสดๆ'],
+    ['actions', '⚡ อีเว้นท์แอคชั่น', 'ของขวัญ/ใจ/คอมเมนต์/แชร์/ฟอลโลว์ → สั่งให้เกิดอะไรก็ได้ แยกได้ 10 แผน'],
+    ['actions-add', '➕ สร้างอีเว้นท์แอคชั่น', 'กด “สร้างอีเว้นท์แอคชั่น” → เลือกเหตุการณ์ในไลฟ์ → เลือกสิ่งที่จะให้เกิด (เล่นเสียง รูป คลิป กดคีย์ คำสั่งมายคราฟ ฯลฯ)'],
+    ['sounds', '🔊 เสียง', 'ตั้งเสียงตามของขวัญ ฟอลโลว์ กดใจ หรือคอมเมนต์ ใส่ได้หลายไฟล์และสุ่มเสียงได้'],
+    ['sounds-add', '🎵 เพิ่มเสียง', 'เลือกเหตุการณ์ → ใส่ไฟล์เสียง MP3/WAV/OGG → ปรับความดัง จบ'],
+    ['win', '🏆 นับวิน', 'ตัวนับวินบนจอ ปรับสี ฟอนต์ ขนาดได้ทุกอย่าง'],
+    ['spin', '🎰 สุ่มวิน', 'วงล้อสุ่มบวกลบวินจากของขวัญ'],
+    ['timer', '⏱️ จับเวลา', 'นับถอยหลัง/นับขึ้น ของขวัญบวกลบเวลาได้'],
+    ['special', '✨ โอเวอร์เลย์พิเศษ', 'แข่งส่งของขวัญ (Coin Match) · คอมเมนต์ลอย · คนส่งของขวัญ — มีตัวอย่างโอเวอร์เลย์ให้ดูก่อนใช้'],
+    ['mc', '⛏️ มายคราฟ', 'เลือกแมพ กดรันเซิร์ฟ คนดูเล่นผ่านของขวัญได้ทันที'],
+    ['games', '🎮 เกม', 'มินิเกมบนไลฟ์พร้อมหลอดความคืบหน้า'],
+    ['don-home', '💸 เว็บโดเนท · บ้าน', 'ยอดโดเนทวันนี้ รายการโดเนท และทดสอบแจ้งเตือนได้'],
+    ['don-page', '🎨 เว็บโดเนท · หน้าโดเนท', 'แต่งหน้าเว็บโดเนทของตัวเอง แล้วกดอัปเดตขึ้นเว็บจริงได้เลย'],
+    ['don-widget', '📺 เว็บโดเนท · วิดเจ็ต', 'แจ้งเตือนโดเนทบนจอ เป้าโดเนท Top โดเนท และจับเวลาจากโดเนท'],
+    ['don-acct', '💳 เว็บโดเนท · บัญชีรับเงิน', 'TrueMoney / พร้อมเพย์ / ธนาคาร พร้อม QR เปลี่ยนยอดอัตโนมัติ และบอทตรวจสลิปฟรี'],
+    ['editor', '✂️ ตัดต่อรูป', 'ทำรูปปก รูปของขวัญ ป้ายต่างๆ']];
+  const gt = $('#gtabs');
+  const showG = (i) => { const g = G[i]; $('#gimg').src = 'img/' + g[0] + '.jpg'; $('#gcap').textContent = g[2]; $$('.gt').forEach((b, j) => b.classList.toggle('on', j === i)); };
+  G.forEach((g, i) => { const b = document.createElement('button'); b.className = 'gt'; b.textContent = g[1]; b.onclick = () => showG(i); gt.appendChild(b); });
+  showG(0);
+  $('#gimg').onclick = () => { $('#zimg').src = $('#gimg').src; $('#zoom').classList.add('on'); };
+  $('#zoom').onclick = () => $('#zoom').classList.remove('on');
+
+  // ---- is the shop program on? (it leaves a sign every 10 minutes)
+  let shopOn = !!C.preview;
+  (function live() {
+    const el = $('#live');
+    const set = (on) => { shopOn = on; el.classList.toggle('on', on); el.lastChild.textContent = on ? 'ร้านออนไลน์ · ตรวจเงินทันที' : 'ร้านออฟไลน์ · ตรวจเมื่อร้านออนไลน์'; };
+    if (C.preview) return set(true);
+    fetch(NT + C.topic + '-hb/json?poll=1&since=12m').then(r => r.text()).then(t => set(t.split('\n').some(l => l.includes('"message"')))).catch(() => set(false));
+  })();
+
+  // ---- Thai QR (PromptPay → TrueMoney e-wallet 14000 + phone) with the price
+  function crc16(s) { let c = 0xFFFF; for (let i = 0; i < s.length; i++) { c ^= s.charCodeAt(i) << 8; for (let j = 0; j < 8; j++) c = (c & 0x8000) ? ((c << 1) ^ 0x1021) : (c << 1); c &= 0xFFFF; } return c.toString(16).toUpperCase().padStart(4, '0'); }
+  const f = (id, v) => id + String(v.length).padStart(2, '0') + v;
+  function qrPayload(phone, amt) {
+    const id = '14000' + String(phone).replace(/\D/g, '');
+    const s = f('00', '01') + f('01', '12') + f('29', f('00', 'A000000677010111') + f('03', id.slice(0, 15))) + f('58', 'TH') + f('53', '764') + f('54', (+amt).toFixed(2)) + '6304';
+    return s + crc16(s);
+  }
+  function drawQR(cv, text) {
+    const q = qrcode(0, 'M'); q.addData(text); q.make();
+    const n = q.getModuleCount(), sc = 7; cv.width = cv.height = n * sc;
+    const g = cv.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, cv.width, cv.height); g.fillStyle = '#000';
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) g.fillRect(c * sc, r * sc, sc, sc);
+  }
+
+  // ---- crypto (order sealed for the shop program; the answer sealed for this page)
+  const b64 = (buf) => { const a = new Uint8Array(buf); let s = ''; for (let i = 0; i < a.length; i += 0x8000) s += String.fromCharCode.apply(null, a.subarray(i, i + 0x8000)); return btoa(s); };
+  const unb64 = (s) => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  async function seal(obj) {
+    const pub = await crypto.subtle.importKey('jwk', C.pubJwk, { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['encrypt']);
+    const key = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt']);
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const data = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(JSON.stringify(obj)));
+    const k = await crypto.subtle.encrypt({ name: 'RSA-OAEP' }, pub, await crypto.subtle.exportKey('raw', key));
+    return JSON.stringify({ v: 1, k: b64(k), iv: b64(iv), d: b64(data) });
+  }
+  async function unseal(m, rk) {
+    if (!m || !m.e) return m;
+    const key = await crypto.subtle.importKey('raw', unb64(rk), 'AES-GCM', false, ['decrypt']);
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(m.iv) }, key, unb64(m.d));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+  const rid = () => Array.from(crypto.getRandomValues(new Uint8Array(12)), b => b.toString(16).padStart(2, '0')).join('');
+
+  // ---- my orders (kept on this phone/computer so the code shows again later)
+  const LS = 'tksShopOrders';
+  const loadMine = () => { try { return JSON.parse(localStorage.getItem(LS) || '[]'); } catch (e) { return []; } };
+  const saveMine = (l) => { try { localStorage.setItem(LS, JSON.stringify(l.slice(-20))); } catch (e) {} };
+  function upMine(id, patch) { const l = loadMine(); const o = l.find(x => x.id === id); if (o) Object.assign(o, patch); saveMine(l); drawMine(); }
+  function drawMine() {
+    const l = loadMine().filter(o => o.link);
+    $('#mine').classList.toggle('on', l.length > 0);
+    $('#mineList').innerHTML = l.reverse().map(o => `<div class="mo">✅ <span>${esc(o.name)} · จ่ายแล้ว</span><span class="sp"></span><a class="btn dc sm" href="${esc(o.link)}" target="_blank" rel="noopener">💬 เข้า Discord</a></div>`).join('');
+  }
+  function copy(t, b) { (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { if (b) { const o = b.textContent; b.textContent = '✅ คัดลอกแล้ว'; setTimeout(() => b.textContent = o, 1500); } }).catch(() => {}); }
+
+  // ---- listen for the answer to one order
+  const listening = {};
+  function listen(o, onState) {
+    if (listening[o.id] || C.preview) return;
+    const es = new EventSource(NT + C.topic + '-r' + o.id + '/sse?since=all');
+    listening[o.id] = es;
+    es.onmessage = async (e) => {
+      let m; try { m = JSON.parse(JSON.parse(e.data).message); m = await unseal(m, o.rk); } catch (x) { return; }
+      if (m.state === 'checking') { onState && onState('checking'); return; }
+      if (m.ok && m.link) { es.close(); delete listening[o.id]; upMine(o.id, { link: m.link, done: true }); onState && onState('ok', m); }
+      else if (m.ok === false) { upMine(o.id, { err: m.err, failed: true }); onState && onState('fail', m); }
+    };
+    return es;
+  }
+  // come back later → pick up the code by itself
+  loadMine().filter(o => !o.link && Date.now() - o.at < 12 * 3600e3).forEach(o => listen(o, (st, m) => { if (st === 'ok') { confetti(); showDone(o.name, m); } }));
+  drawMine();
+
+  // ---- buy window
+  const mbg = $('#mbg'), mod = $('#mod');
+  let method = 'ang', slip = null, busy = false;
+  const close = () => { if (!busy) mbg.classList.remove('on'); };
+  mbg.addEventListener('click', e => { if (e.target === mbg) close(); });
+  function view(html) { mod.innerHTML = '<button class="x" id="mx">✕</button>' + html; $('#mx').onclick = close; mbg.classList.add('on'); }
+  function openBuy() {
+    let saved = {}; try { saved = JSON.parse(localStorage.getItem('tksShopMe') || '{}'); } catch (e) {}
+    view(`<h3>🛒 ซื้อ Tikstudio</h3><div class="mu">ราคา <b style="color:#fff">${PRICE} บาท</b> · จ่ายแล้วได้ปุ่มเข้า Discord ทันที</div>
+      <label class="l">ชื่อของคุณ *</label><input class="inp" id="bn" maxlength="40" placeholder="เช่น ชื่อ TikTok ของคุณ" value="${esc(saved.n || '')}">
+      <label class="l">ช่องทางติดต่อ (ไม่บังคับ)</label><input class="inp" id="bc" maxlength="60" placeholder="TikTok @... / Line / เบอร์โทร" value="${esc(saved.c || '')}">
+      <div class="ptabs"><button class="pt ${method === 'ang' ? 'on' : ''}" data-m="ang"><span class="e">🧧</span><b>ลิงก์อั่งเปา</b><small>TrueMoney · รับเงินอัตโนมัติ</small></button><button class="pt ${method === 'qr' ? 'on' : ''}" data-m="qr"><span class="e">📷</span><b>สแกน QR</b><small>ทุกแอปธนาคาร + แนบสลิป</small></button></div>
+      <div class="panel" id="pAng" ${method === 'ang' ? '' : 'hidden'}>
+        <ol><li>กดปุ่มด้านล่าง → แอป TrueMoney → <b>อั่งเปา</b></li><li>สร้างซองยอด <b>${PRICE} บาท</b> · จำนวนคนรับ <b>1 คน</b></li><li>กด <b>แชร์ / คัดลอกลิงก์</b> แล้วกลับมาวางลิงก์ที่ช่องนี้</li></ol>
+        <button class="btn tm w" id="tmOpen" style="margin:12px 0 10px">🧧 เปิดแอป TrueMoney</button>
+        <div style="display:flex;gap:8px"><input class="inp" id="ang" placeholder="https://gift.truemoney.com/campaign/?v=..." autocomplete="off"><button class="btn sm" id="paste" style="white-space:nowrap">📋 วาง</button></div>
+      </div>
+      <div class="panel" id="pQr" ${method === 'qr' ? '' : 'hidden'}>
+        <div class="qrw"><div class="qr"><span class="tg">QR TrueMoney ของร้าน</span><canvas id="qcv"></canvas></div><div class="amt">💰 สแกนจ่าย ${PRICE.toFixed(2)} บาท</div><button class="btn sm" id="qsave">💾 บันทึกรูป QR</button>
+        <div class="acct"><div class="bk">TMN</div><div style="flex:1"><div class="s">TrueMoney Wallet</div><div class="n">${esc(C.phone)}</div><div class="s">${esc(C.name)}</div></div><button class="btn sm" id="cpPhone">📋 คัดลอก</button></div></div>
+        <label class="drop" id="drop"><input type="file" accept="image/*"><div class="dt">📎 โอนเสร็จแล้ว แตะเพื่อแนบสลิป</div></label>
+      </div>
+      <div class="err" id="err"></div>
+      <button class="btn pri w lg" id="go" style="margin-top:14px">✅ ยืนยันการซื้อ</button>
+      <div class="mu center" style="margin-top:8px">${shopOn ? '🟢 ร้านออนไลน์ — ตรวจเงินภายใน 1 นาที' : '🟠 ร้านออฟไลน์อยู่ — จ่ายได้ปกติ ระบบจะตรวจให้เมื่อร้านออนไลน์ (กลับมาหน้านี้ปุ่มเข้า Discord จะขึ้นเอง)'}</div>`);
+    $$('.pt', mod).forEach(b => b.onclick = () => { method = b.dataset.m; $$('.pt', mod).forEach(x => x.classList.toggle('on', x === b)); $('#pAng').hidden = method !== 'ang'; $('#pQr').hidden = method !== 'qr'; err(''); });
+    try { drawQR($('#qcv'), qrPayload(C.phone, PRICE)); } catch (e) {}
+    $('#qsave').onclick = () => { const a = document.createElement('a'); a.download = 'tikstudio-qr-' + PRICE + '.png'; a.href = $('#qcv').toDataURL('image/png'); document.body.appendChild(a); a.click(); a.remove(); };
+    $('#cpPhone').onclick = (e) => copy(String(C.phone).replace(/\D/g, ''), e.currentTarget);
+    $('#tmOpen').onclick = () => {
+      remember();
+      if (isAndroid) location.href = 'intent://#Intent;package=th.co.truemoney.wallet;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=th.co.truemoney.wallet') + ';end';
+      else if (isIOS) { const t = Date.now(); location.href = 'truemoney://'; setTimeout(() => { if (!document.hidden && Date.now() - t < 2500) location.href = 'https://apps.apple.com/th/app/truemoney/id663885752'; }, 1500); }
+      else err('ปุ่มนี้เปิดแอปในมือถือ — ถ้าใช้คอม ให้สร้างซองอั่งเปาในมือถือ แล้วเอาลิงก์มาวางในช่องด้านล่าง');
+    };
+    $('#paste').onclick = async () => { try { const t = (await navigator.clipboard.readText() || '').match(/https:\/\/gift\.truemoney\.com\/campaign\/?\?v=[A-Za-z0-9]{8,64}/); if (t) $('#ang').value = t[0]; else err('ยังไม่ได้คัดลอกลิงก์อั่งเปา — ในแอป TrueMoney กด “แชร์/คัดลอกลิงก์” ก่อน'); } catch (e) { err('วางอัตโนมัติไม่ได้ — กดค้างที่ช่องแล้วเลือก “วาง”'); } };
+    const drop = $('#drop'), inp = drop.querySelector('input');
+    const take = (file) => {
+      if (!file || !/^image\//.test(file.type)) return;
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => {
+        const k = Math.min(1, 1400 / Math.max(img.width, img.height)), cv = document.createElement('canvas');
+        cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k);
+        cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+        slip = cv.toDataURL('image/jpeg', 0.85);
+        drop.classList.add('has'); drop.querySelector('.dt').innerHTML = `<img src="${slip}">✅ แนบสลิปแล้ว (แตะเพื่อเปลี่ยน)`;
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    };
+    inp.onchange = () => take(inp.files[0]);
+    drop.ondragover = (e) => e.preventDefault(); drop.ondrop = (e) => { e.preventDefault(); take(e.dataTransfer.files[0]); };
+    if (slip) { drop.classList.add('has'); drop.querySelector('.dt').innerHTML = `<img src="${slip}">✅ แนบสลิปแล้ว (แตะเพื่อเปลี่ยน)`; }
+    $('#go').onclick = submit;
+  }
+  function remember() { try { localStorage.setItem('tksShopMe', JSON.stringify({ n: $('#bn').value.trim(), c: $('#bc').value.trim() })); } catch (e) {} }
+  function err(t) { const e = $('#err'); if (!e) return; e.textContent = t || ''; e.classList.toggle('on', !!t); }
+  $$('.buy').forEach(b => b.onclick = openBuy);
+  // came back from the TrueMoney app with the link copied → paste it for them
+  document.addEventListener('visibilitychange', async () => {
+    if (document.hidden || !mbg.classList.contains('on') || method !== 'ang' || !$('#ang') || $('#ang').value) return;
+    try { const t = (await navigator.clipboard.readText() || '').match(/https:\/\/gift\.truemoney\.com\/campaign\/?\?v=[A-Za-z0-9]{8,64}/); if (t) $('#ang').value = t[0]; } catch (e) {}
+  });
+
+  async function submit() {
+    const name = $('#bn').value.trim(), contact = $('#bc').value.trim();
+    if (!name) { $('#bn').focus(); return err('กรุณาใส่ชื่อของคุณ'); }
+    remember();
+    const rkRaw = crypto.getRandomValues(new Uint8Array(32)), rk = b64(rkRaw);
+    const d = { id: rid(), name: name.slice(0, 40), contact: contact.slice(0, 60), rk, at: Date.now(), price: PRICE };
+    if (method === 'ang') { const v = $('#ang').value.trim(); if (!ANG.test(v)) return err('ใส่ลิงก์อั่งเปา TrueMoney ให้ถูกต้อง (https://gift.truemoney.com/campaign/?v=...)'); d.kind = 'angpao'; d.link = v; }
+    else { if (!slip) return err('กรุณาแนบสลิปโอนเงินก่อน'); d.kind = 'slip'; d.slip = slip; }
+    if (C.preview) { view('<div class="center"><div class="spin"></div><h3>กำลังตรวจสอบ...</h3><div class="mu">(ตัวอย่าง)</div></div>'); setTimeout(() => { confetti(); showDone(name, { link: '#' }); }, 1200); return; }
+    busy = true;
+    view('<div class="center"><div class="spin"></div><h3>กำลังส่งคำสั่งซื้อ...</h3><div class="mu">อย่าเพิ่งปิดหน้านี้นะ</div></div>');
+    const mine = loadMine(); mine.push({ id: d.id, rk, name: d.name, at: d.at }); saveMine(mine);
+    let done = false, got = false, timer = null;
+    const fin = (fn) => { if (done) return; done = true; busy = false; clearTimeout(timer); fn(); };
+    const late = () => fin(() => view(`<div class="center"><div class="big">⏳</div><h3>ส่งคำสั่งซื้อแล้ว</h3><div class="mu">ตอนนี้ร้านอาจออฟไลน์อยู่ ระบบจะตรวจเงินให้เมื่อร้านออนไลน์ (ภายใน 3 ชั่วโมง)<br><br>เปิดหน้าเว็บนี้ทิ้งไว้ หรือกลับมาเปิดใหม่ในเครื่องเดิม ปุ่มเข้า Discord จะขึ้นที่ “💬 การซื้อของฉัน” ให้เอง — <b>ไม่ต้องจ่ายซ้ำนะ</b></div><button class="btn w" style="margin-top:16px" onclick="document.getElementById('mbg').classList.remove('on')">ตกลง</button></div>`));
+    const es = listen({ id: d.id, rk }, (st, m) => {
+      if (st === 'checking') { got = true; if (!done) view('<div class="center"><div class="spin"></div><h3>กำลังตรวจสอบการชำระเงิน...</h3><div class="mu">ร้านได้รับคำสั่งซื้อแล้ว กำลังตรวจ ' + (d.kind === 'angpao' ? 'อั่งเปา' : 'สลิป') + ' อย่าเพิ่งปิดหน้านี้นะ</div></div>'); clearTimeout(timer); timer = setTimeout(late, 180000); return; }
+      if (st === 'ok') fin(() => { confetti(); showDone(d.name, m); });
+      else if (st === 'fail') fin(() => { openBuy(); err('❌ ' + (m.err || 'ตรวจสอบไม่ผ่าน')); });
+    });
+    await new Promise(ok => { if (!es) return ok(); const t = setTimeout(ok, 3000); es.onopen = () => { clearTimeout(t); ok(); }; });
+    try {
+      const body = await seal(d);
+      const r = await fetch(NT + C.topic, { method: 'PUT', body, headers: { Filename: 'o.json' } });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      if (!done && !got) view('<div class="center"><div class="spin"></div><h3>กำลังตรวจสอบการชำระเงิน...</h3><div class="mu">ใช้เวลาไม่เกิน 1 นาที อย่าเพิ่งปิดหน้านี้นะ</div></div>');
+      timer = setTimeout(late, got ? 180000 : 75000);
+    } catch (e) { fin(() => { openBuy(); err('ส่งคำสั่งซื้อไม่สำเร็จ ลองใหม่อีกครั้ง (' + (e.message || e) + ')'); }); }
+  }
+  function showDone(name, m) {
+    busy = false;
+    view(`<div class="center"><div class="big">🎉</div><h3>ชำระเงินสำเร็จ! ขอบคุณ ${esc(name)}</h3><div class="mu">ตรวจเงินผ่านแล้ว — กดปุ่มด้านล่างเพื่อเข้า Discord ของ King Studio<br>รับโปรแกรม Tikstudio และวิธีใช้ได้ในดิสคอร์ด</div>
+      <a class="btn dc w lg" href="${esc(m.link)}" target="_blank" rel="noopener" style="margin-top:18px">💬 เข้า Discord</a>
+      <div class="howto"><b>ขั้นตอนต่อไป</b><ol><li>กด “เข้า Discord” แล้วกดยอมรับคำเชิญ (ยังไม่มีบัญชี Discord สมัครฟรีได้เลย)</li><li>ในดิสคอร์ดจะมีโปรแกรมและวิธีใช้ให้</li><li>ทักแอดมินในดิสคอร์ด แจ้งชื่อ <b>${esc(name)}</b> ถ้ามีคำถาม</li></ol></div>
+      <div class="mu" style="margin-top:10px">ปุ่มนี้จะอยู่ที่หัวข้อ “💬 การซื้อของฉัน” บนหน้าเว็บนี้ด้วย</div></div>`);
+    drawMine();
+  }
+  // ---- confetti
+  function confetti() {
+    const cv = $('#conf'), g = cv.getContext('2d'); cv.width = innerWidth; cv.height = innerHeight;
+    const cols = ['#8b5cf6', '#ec4899', '#fde047', '#22c55e', '#38bdf8', '#fb923c'];
+    const P = Array.from({ length: 160 }, () => ({ x: Math.random() * cv.width, y: -20 - Math.random() * cv.height * .5, vx: (Math.random() - .5) * 3, vy: 2 + Math.random() * 4, r: Math.random() * 6.28, s: 6 + Math.random() * 8, c: cols[Math.random() * cols.length | 0] }));
+    let t = 0;
+    (function fr() { g.clearRect(0, 0, cv.width, cv.height); for (const p of P) { p.x += p.vx; p.y += p.vy; p.r += .1; g.save(); g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c; g.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); g.restore(); } if (++t < 220) requestAnimationFrame(fr); else g.clearRect(0, 0, cv.width, cv.height); })();
+  }
+})();
+</script>
+</body>
+</html>
